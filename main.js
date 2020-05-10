@@ -1,45 +1,74 @@
 let btnProperties = document.getElementById("properties");
 let btnCutSpaces = document.getElementById("cutSpaces");
+let btnDelText = document.getElementById("delText");
 
 let textarea = document.getElementById("textVal");
 
-let inputNumLetters = document.getElementById("numLetters");
+let inputNumLetters = document.getElementById("numChar");
 let inputNumSpaces = document.getElementById("numSpaces");
 let inputNumWords = document.getElementById("numWords");
 
 btnProperties.addEventListener("click", () => {
 	let text = textarea.value;
-	let palavras = text.split(' ');
-	let numLetters = 0;
-	let numWords = palavras.length;
+	let num = numCharSpacesWords(text);
 
-	let palavra_s = '';
-  let lenghtNome = 0;
-
-  palavras.forEach(palavra => {
-    palavra_s += `${palavra}`;
-    numLetters += palavra.length;
-  });
-
-  numCharacters = text.length;
-  let numSpaces = numCharacters - numLetters;
-
-	inputNumLetters.value = `N° de Letras: ${numLetters}`;
-	inputNumWords.value = `N° de Palavras: ${numWords}`;
-	inputNumSpaces.value = `N° de Espaços: ${numSpaces}`;
+	inputNumLetters.value = `N° de Caracteres: ${num.numChar}`;
+	inputNumWords.value = `N° de Palavras: ${num.numWords}`;
+	inputNumSpaces.value = `N° de Espaços: ${num.numSpaces}`;
 });
 
 btnCutSpaces.addEventListener("click", () => {
 	let text = textarea.value;
-	let palavras = text.split(' ');
-	let palavra_s = '';
+	textNoSpaces = cutSpaces(text);
+	let num = numCharSpacesWords(textNoSpaces);
 
-	palavras.forEach(palavra => {
-    palavra_s += `${palavra}`;
-  });
+	inputNumSpaces.value = `N° de Espaços: ${num.numSpaces}`;
+	inputNumWords.value = `N° de Palavras: ${num.numWords}`;
 
-  textarea.value = palavra_s;
+  textarea.value = textNoSpaces;
 });
 
-//acertar num de palavras
-//func deletar texto
+btnDelText.addEventListener("click", () => {
+	delText();
+});
+
+function numCharSpacesWords(text){
+	let palavras = text.split(' ');
+	let numChar = 0;
+	let numWords = 0;
+	let words = [];
+  let lenghtNome = 0;
+  let cont = 0;
+
+  palavras.forEach(palavra => {
+  	palavra.replace(/ /g, '');
+
+  	if(palavra == ''){
+  		cont++;
+  	}
+
+  	words.push(palavra);
+    numChar += palavra.length;
+  });
+
+  numWords = words.length - cont;
+
+  numAllCharacters = text.length;
+  let numSpaces = numAllCharacters - numChar;
+
+  return {
+  	numChar: numChar,
+  	numSpaces: numSpaces,
+  	numWords: numWords,
+  }
+}
+
+function cutSpaces(text){
+ 	let palavra_s = text.replace(/ /g, '');
+
+  return palavra_s;
+}
+
+function delText(){
+	textarea.value = '';
+}
