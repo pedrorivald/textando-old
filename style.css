@@ -64,6 +64,17 @@ form{
 	margin-top: 30px;
 }
 
+form input{
+	text-align: center;
+	margin-top: 10px;
+	padding: 5px;
+	height: 20px;
+	width: 150px;
+	border: 1px solid #e55f69;
+	border-radius: 10px;
+	background-color: transparent;
+}
+
 textarea {
   width: 80%;
   height: 300px;
@@ -74,4 +85,28 @@ textarea {
   border-radius: 10px;
   background-color: #ffffcc;
   font-size: 16px;
+}
+
+.footer{
+	background-color: #ffff80;
+	margin-top: 25px;
+	padding: 20px;
+}
+
+.footer p{
+	text-align: center;
+}
+
+.footer span{
+	color: #e55f69;
+}
+
+.footer p a{
+	text-decoration: none;
+	color: #e55f69;
+	font-weight: 500;
+}
+
+.footer p a:hover{
+	font-style: oblique;
 }

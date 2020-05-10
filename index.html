@@ -23,18 +23,26 @@
 
 	<form>
 		<center>
-			<button class="btn">Option 1</button>
-			<button class="btn">Option 1</button>
-			<button class="btn">Option 1</button>
-			<button class="btn">Option 1</button>
-			<button class="btn">Option 1</button>
+			<button type="button" class="btn" id="properties">Propriedades</button>
+			<button type="button" class="btn" id="cutSpaces">Retirar Espaços</button>
+			<!-- <button class="btn" id="upper" onclick="textUpperCase()">Tudo Maiúsculo</button> -->
+			<!-- <button class="btn" id="lower" onclick="textLowerCase()">Tudo Minúsculo</button> -->
 		</center>
 
 		<center>
-  		<textarea placeholder="Digite ou cole seu texto aqui..."></textarea>
+			<input type="text" id="numLetters" value="N° de Letras:"><br>
+			<input type="text" id="numSpaces" value="N° de Espaços:"><br>
+			<input type="text" id="numWords" value="N° de Palavras:">
+		</center>
+
+		<center>
+  		<textarea id="textVal" placeholder="Digite ou cole seu texto aqui..."></textarea>
   	</center>
 	</form>
 
+	<div class="footer">
+		<p>Feito com <span>❤</span> por <a href="https://github.com/pedrorivald">Pedro Rivaldo</a></p>
+	</div>
 	<script type="text/javascript" src="main.js"></script>
 </body>
 </html>
