@@ -1,6 +1,7 @@
 let btnProperties = document.getElementById("properties");
 let btnCutSpaces = document.getElementById("cutSpaces");
 let btnDelText = document.getElementById("delText");
+let btnMesclarText = document.getElementById("mesclarText");
 let btnUpper = document.getElementById("upper");
 let btnLower = document.getElementById("lower");
 
@@ -40,6 +41,19 @@ btnUpper.addEventListener("click", () => {
 
 btnLower.addEventListener("click", () => {
 	textarea.value = textarea.value.toLowerCase();
+});
+
+btnMesclarText.addEventListener("click", () => {
+  let text = textarea.value;
+  text = text.toUpperCase();
+
+  text = text.replace(/O/g, '0');
+  text = text.replace(/I/g, '1');
+  text = text.replace(/E/g, '3');
+  text = text.replace(/A/g, '4');
+  text = text.replace(/S/g, '5');
+
+  textarea.value = text;
 });
 
 function numCharSpacesWords(text){
