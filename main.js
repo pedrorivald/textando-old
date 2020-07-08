@@ -4,6 +4,7 @@ let btnDelText = document.getElementById("delText");
 let btnMesclarText = document.getElementById("mesclarText");
 let btnUpper = document.getElementById("upper");
 let btnLower = document.getElementById("lower");
+let btnCopy = document.getElementById("copy");
 
 let textarea = document.getElementById("textVal");
 
@@ -54,6 +55,11 @@ btnMesclarText.addEventListener("click", () => {
   text = text.replace(/S/g, '5');
 
   textarea.value = text;
+});
+
+btnCopy.addEventListener("click", () => {
+  textarea.select();
+  document.execCommand("Copy");
 });
 
 function numCharSpacesWords(text){
